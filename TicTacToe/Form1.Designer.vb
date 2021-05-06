@@ -39,6 +39,7 @@ Partial Class Form1
         Me.lblPlayer2Gameswon = New System.Windows.Forms.Label()
         Me.btnQuit = New System.Windows.Forms.Button()
         Me.btnNewGame = New System.Windows.Forms.Button()
+        Me.lblInstructions = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -81,6 +82,7 @@ Partial Class Form1
         'lblGrid1
         '
         Me.lblGrid1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblGrid1.Enabled = False
         Me.lblGrid1.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrid1.Location = New System.Drawing.Point(211, 176)
         Me.lblGrid1.Name = "lblGrid1"
@@ -91,6 +93,7 @@ Partial Class Form1
         'lblGrid2
         '
         Me.lblGrid2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblGrid2.Enabled = False
         Me.lblGrid2.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrid2.Location = New System.Drawing.Point(356, 176)
         Me.lblGrid2.Name = "lblGrid2"
@@ -101,6 +104,7 @@ Partial Class Form1
         'lblGrid3
         '
         Me.lblGrid3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblGrid3.Enabled = False
         Me.lblGrid3.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrid3.Location = New System.Drawing.Point(501, 176)
         Me.lblGrid3.Name = "lblGrid3"
@@ -111,6 +115,7 @@ Partial Class Form1
         'lblGrid4
         '
         Me.lblGrid4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblGrid4.Enabled = False
         Me.lblGrid4.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrid4.Location = New System.Drawing.Point(211, 304)
         Me.lblGrid4.Name = "lblGrid4"
@@ -121,6 +126,7 @@ Partial Class Form1
         'lblGrid5
         '
         Me.lblGrid5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblGrid5.Enabled = False
         Me.lblGrid5.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrid5.Location = New System.Drawing.Point(356, 304)
         Me.lblGrid5.Name = "lblGrid5"
@@ -131,6 +137,7 @@ Partial Class Form1
         'lblGrid6
         '
         Me.lblGrid6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblGrid6.Enabled = False
         Me.lblGrid6.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrid6.Location = New System.Drawing.Point(501, 304)
         Me.lblGrid6.Name = "lblGrid6"
@@ -141,6 +148,7 @@ Partial Class Form1
         'lblGrid7
         '
         Me.lblGrid7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblGrid7.Enabled = False
         Me.lblGrid7.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrid7.Location = New System.Drawing.Point(211, 432)
         Me.lblGrid7.Name = "lblGrid7"
@@ -151,6 +159,7 @@ Partial Class Form1
         'lblGrid8
         '
         Me.lblGrid8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblGrid8.Enabled = False
         Me.lblGrid8.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrid8.Location = New System.Drawing.Point(356, 432)
         Me.lblGrid8.Name = "lblGrid8"
@@ -161,6 +170,7 @@ Partial Class Form1
         'lblGrid9
         '
         Me.lblGrid9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblGrid9.Enabled = False
         Me.lblGrid9.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrid9.Location = New System.Drawing.Point(501, 432)
         Me.lblGrid9.Name = "lblGrid9"
@@ -202,11 +212,20 @@ Partial Class Form1
         Me.btnNewGame.Text = "&New Game"
         Me.btnNewGame.UseVisualStyleBackColor = True
         '
+        'lblInstructions
+        '
+        Me.lblInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblInstructions.Location = New System.Drawing.Point(698, 196)
+        Me.lblInstructions.Name = "lblInstructions"
+        Me.lblInstructions.Size = New System.Drawing.Size(201, 64)
+        Me.lblInstructions.TabIndex = 17
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(933, 588)
+        Me.Controls.Add(Me.lblInstructions)
         Me.Controls.Add(Me.btnNewGame)
         Me.Controls.Add(Me.btnQuit)
         Me.Controls.Add(Me.lblPlayer2Gameswon)
@@ -250,4 +269,5 @@ Partial Class Form1
     Friend WithEvents lblPlayer2Gameswon As Label
     Friend WithEvents btnQuit As Button
     Friend WithEvents btnNewGame As Button
+    Friend WithEvents lblInstructions As Label
 End Class
