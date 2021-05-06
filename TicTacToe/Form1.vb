@@ -27,6 +27,7 @@ Public Class Form1
 
     ' On main page load initialises both players wins to 0 and writes the instructions to start playing. 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        intPlayerTurn = 1
         lblPlayer1GamesWon.Text = "0"
         lblPlayer2Gameswon.Text = "0"
         lblInstructions.Text = "Welcome to TicTacToe" + ControlChars.NewLine + "Please press on New Game to start!"
@@ -53,15 +54,21 @@ Public Class Form1
             If dlgAnswer = DialogResult.Yes Then
                 Activate_Grid_Labels()
                 blnWinner = False
-                intPlayerTurn = 1
-                lblInstructions.Text = "It's your turn Player 1 (X)"
                 Reset_Grid()
+                If intPlayerTurn = 1 Then
+                    lblInstructions.Text = "It's your turn " + lblPlayer1Name.Text.Trim.TrimEnd(":"c)
+                ElseIf intPlayerTurn = 2 Then
+                    lblInstructions.Text = "It's your turn " + lblPlayer2Name.Text.Trim.TrimEnd(":"c)
+                End If
             End If
         Else
+            If intPlayerTurn = 1 Then
+                lblInstructions.Text = "It's your turn " + lblPlayer1Name.Text.Trim.TrimEnd(":"c)
+            ElseIf intPlayerTurn = 2 Then
+                lblInstructions.Text = "It's your turn " + lblPlayer2Name.Text.Trim.TrimEnd(":"c)
+            End If
             Activate_Grid_Labels()
             blnWinner = False
-            intPlayerTurn = 1
-            lblInstructions.Text = "It's your turn Player 1 (X)"
         End If
     End Sub
 
@@ -91,11 +98,13 @@ Public Class Form1
             lblGrid8.Enabled = False
             lblGrid9.Enabled = False
             If blnWinner = True Then
+                Dim message As String
                 If intPlayerTurn = 1 Then
                     Dim intPlayer2CurrentWins As Integer
                     Integer.TryParse(lblPlayer2Gameswon.Text, intPlayer2CurrentWins)
                     intPlayer2CurrentWins += 1
                     lblPlayer2Gameswon.Text = intPlayer2CurrentWins.ToString()
+                    message = "Nice win " + lblPlayer2Name.Text.Trim.TrimEnd(":"c)
                     ' Activate reset score button and menu
                     mnuResetScores.Enabled = True
                     btnReset.Enabled = True
@@ -104,10 +113,12 @@ Public Class Form1
                     Integer.TryParse(lblPlayer1GamesWon.Text, intPlayer1CurrentWins)
                     intPlayer1CurrentWins += 1
                     lblPlayer1GamesWon.Text = intPlayer1CurrentWins.ToString()
+                    message = "Nice win " + lblPlayer1Name.Text.Trim.TrimEnd(":"c)
                     ' Activate reset score button and menu
                     mnuResetScores.Enabled = True
                     btnReset.Enabled = True
                 End If
+                lblInstructions.Text = message
             End If
         End If
     End Sub
@@ -115,11 +126,11 @@ Public Class Form1
     ' Changes the players turns after each player clicks the tictactoe grid to play a turn. Returns the string for the grid and tells the other player to play.
     Private Function Player_Change() As String
         If intPlayerTurn = 1 Then
-            lblInstructions.Text = "It's your turn Player 2 (O)"
+            lblInstructions.Text = "It's your turn " + lblPlayer2Name.Text + " (O)"
             intPlayerTurn = 2
             Return "X"
         Else
-            lblInstructions.Text = "It's your turn Player 1 (X)"
+            lblInstructions.Text = "It's your turn " + lblPlayer1Name.Text + " (X)"
             intPlayerTurn = 1
             Return "O"
         End If
