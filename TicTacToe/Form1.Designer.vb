@@ -23,8 +23,8 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblPlayer1Name = New System.Windows.Forms.Label()
+        Me.lblPlayer2Name = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblGrid1 = New System.Windows.Forms.Label()
         Me.lblGrid2 = New System.Windows.Forms.Label()
@@ -40,11 +40,24 @@ Partial Class Form1
         Me.btnQuit = New System.Windows.Forms.Button()
         Me.btnNewGame = New System.Windows.Forms.Button()
         Me.lblInstructions = New System.Windows.Forms.Label()
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuResetScores = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuPlayer1Name = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuPlayer2Name = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnRecords = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(266, 30)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(339, 77)
@@ -52,23 +65,23 @@ Partial Class Form1
         Me.Label1.Text = "TicTacToe"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label2
+        'lblPlayer1Name
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 153)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(57, 17)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Player 1:"
+        Me.lblPlayer1Name.AutoSize = True
+        Me.lblPlayer1Name.Location = New System.Drawing.Point(12, 153)
+        Me.lblPlayer1Name.Name = "lblPlayer1Name"
+        Me.lblPlayer1Name.Size = New System.Drawing.Size(57, 17)
+        Me.lblPlayer1Name.TabIndex = 1
+        Me.lblPlayer1Name.Text = "Player 1:"
         '
-        'Label3
+        'lblPlayer2Name
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 186)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 17)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Player 2:"
+        Me.lblPlayer2Name.AutoSize = True
+        Me.lblPlayer2Name.Location = New System.Drawing.Point(12, 186)
+        Me.lblPlayer2Name.Name = "lblPlayer2Name"
+        Me.lblPlayer2Name.Size = New System.Drawing.Size(57, 17)
+        Me.lblPlayer2Name.TabIndex = 2
+        Me.lblPlayer2Name.Text = "Player 2:"
         '
         'Label4
         '
@@ -205,7 +218,7 @@ Partial Class Form1
         '
         'btnNewGame
         '
-        Me.btnNewGame.Location = New System.Drawing.Point(698, 471)
+        Me.btnNewGame.Location = New System.Drawing.Point(698, 479)
         Me.btnNewGame.Name = "btnNewGame"
         Me.btnNewGame.Size = New System.Drawing.Size(88, 24)
         Me.btnNewGame.TabIndex = 16
@@ -215,16 +228,112 @@ Partial Class Form1
         'lblInstructions
         '
         Me.lblInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblInstructions.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblInstructions.Location = New System.Drawing.Point(698, 196)
         Me.lblInstructions.Name = "lblInstructions"
-        Me.lblInstructions.Size = New System.Drawing.Size(201, 64)
+        Me.lblInstructions.Size = New System.Drawing.Size(223, 209)
         Me.lblInstructions.TabIndex = 17
+        '
+        'btnReset
+        '
+        Me.btnReset.Enabled = False
+        Me.btnReset.Location = New System.Drawing.Point(65, 304)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(92, 24)
+        Me.btnReset.TabIndex = 18
+        Me.btnReset.Text = "&Reset Scores"
+        Me.btnReset.UseVisualStyleBackColor = True
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.EditToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(933, 24)
+        Me.MenuStrip1.TabIndex = 19
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'FichierToolStripMenuItem
+        '
+        Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewGameToolStripMenuItem, Me.mnuResetScores, Me.QuitToolStripMenuItem})
+        Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
+        Me.FichierToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.FichierToolStripMenuItem.Text = "&Fichier"
+        '
+        'NewGameToolStripMenuItem
+        '
+        Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewGameToolStripMenuItem.Text = "&New Game"
+        '
+        'mnuResetScores
+        '
+        Me.mnuResetScores.Enabled = False
+        Me.mnuResetScores.Name = "mnuResetScores"
+        Me.mnuResetScores.Size = New System.Drawing.Size(180, 22)
+        Me.mnuResetScores.Text = "&Reset Scores"
+        '
+        'QuitToolStripMenuItem
+        '
+        Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuitToolStripMenuItem.Text = "&Quit"
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuPlayer1Name, Me.mnuPlayer2Name})
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
+        Me.EditToolStripMenuItem.Text = "&Edit"
+        '
+        'mnuPlayer1Name
+        '
+        Me.mnuPlayer1Name.Name = "mnuPlayer1Name"
+        Me.mnuPlayer1Name.Size = New System.Drawing.Size(150, 22)
+        Me.mnuPlayer1Name.Text = "Player &1 Name"
+        '
+        'mnuPlayer2Name
+        '
+        Me.mnuPlayer2Name.Name = "mnuPlayer2Name"
+        Me.mnuPlayer2Name.Size = New System.Drawing.Size(150, 22)
+        Me.mnuPlayer2Name.Text = "Player &2 Name"
+        '
+        'btnRecords
+        '
+        Me.btnRecords.Location = New System.Drawing.Point(833, 479)
+        Me.btnRecords.Name = "btnRecords"
+        Me.btnRecords.Size = New System.Drawing.Size(88, 24)
+        Me.btnRecords.TabIndex = 20
+        Me.btnRecords.Text = "&Records"
+        Me.btnRecords.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(698, 163)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(98, 21)
+        Me.Label2.TabIndex = 21
+        Me.Label2.Text = "Game Master:"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(698, 536)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(88, 24)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "&Rules"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(933, 588)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.btnRecords)
+        Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.lblInstructions)
         Me.Controls.Add(Me.btnNewGame)
         Me.Controls.Add(Me.btnQuit)
@@ -240,21 +349,25 @@ Partial Class Form1
         Me.Controls.Add(Me.lblGrid2)
         Me.Controls.Add(Me.lblGrid1)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblPlayer2Name)
+        Me.Controls.Add(Me.lblPlayer1Name)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Form1"
         Me.Text = "TicTacToe"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblPlayer1Name As Label
+    Friend WithEvents lblPlayer2Name As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents lblGrid1 As Label
     Friend WithEvents lblGrid2 As Label
@@ -270,4 +383,16 @@ Partial Class Form1
     Friend WithEvents btnQuit As Button
     Friend WithEvents btnNewGame As Button
     Friend WithEvents lblInstructions As Label
+    Friend WithEvents btnReset As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents FichierToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NewGameToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuResetScores As ToolStripMenuItem
+    Friend WithEvents QuitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuPlayer1Name As ToolStripMenuItem
+    Friend WithEvents mnuPlayer2Name As ToolStripMenuItem
+    Friend WithEvents btnRecords As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Button1 As Button
 End Class
