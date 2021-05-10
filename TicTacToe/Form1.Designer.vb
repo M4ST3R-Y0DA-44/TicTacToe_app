@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblPlayer1Name = New System.Windows.Forms.Label()
@@ -257,26 +257,26 @@ Partial Class Form1
         '
         Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewGameToolStripMenuItem, Me.mnuResetScores, Me.QuitToolStripMenuItem})
         Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
-        Me.FichierToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
-        Me.FichierToolStripMenuItem.Text = "&Fichier"
+        Me.FichierToolStripMenuItem.Size = New System.Drawing.Size(42, 20)
+        Me.FichierToolStripMenuItem.Text = "&Files"
         '
         'NewGameToolStripMenuItem
         '
         Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
-        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.NewGameToolStripMenuItem.Text = "&New Game"
         '
         'mnuResetScores
         '
         Me.mnuResetScores.Enabled = False
         Me.mnuResetScores.Name = "mnuResetScores"
-        Me.mnuResetScores.Size = New System.Drawing.Size(180, 22)
+        Me.mnuResetScores.Size = New System.Drawing.Size(139, 22)
         Me.mnuResetScores.Text = "&Reset Scores"
         '
         'QuitToolStripMenuItem
         '
         Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
-        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.QuitToolStripMenuItem.Text = "&Quit"
         '
         'EditToolStripMenuItem
@@ -356,6 +356,7 @@ Partial Class Form1
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "TicTacToe"
         Me.MenuStrip1.ResumeLayout(False)

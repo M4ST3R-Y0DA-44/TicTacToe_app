@@ -310,4 +310,12 @@ Public Class Form1
             btnReset.Enabled = False
         End If
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim strRules As String
+        strRules = "Rules of TicTacToe" + ControlChars.NewLine + "Turn by turn, each player places an 'X' or an 'O' on the playing grid." + ControlChars.NewLine +
+            "The goal is to form a straight line of three 'X's or 'O's in a row." + ControlChars.NewLine + "This can be accomplished horizontaly, vertically, or diagonaly on the playing grid." +
+            ControlChars.NewLine + "First player to complete the goal wins the game. The looser will start next round." + ControlChars.NewLine + ControlChars.NewLine + "Note: You can edit your players name through the edit menu for the game to go in the record books!"
+        MessageBox.Show(strRules, "Rules", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class
