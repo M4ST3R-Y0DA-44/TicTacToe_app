@@ -51,7 +51,7 @@ Partial Class Form1
         Me.mnuPlayer2Name = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnRecords = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnRegle = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -315,14 +315,14 @@ Partial Class Form1
         Me.Label2.TabIndex = 21
         Me.Label2.Text = "Game Master:"
         '
-        'Button1
+        'btnRegle
         '
-        Me.Button1.Location = New System.Drawing.Point(698, 536)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(88, 24)
-        Me.Button1.TabIndex = 22
-        Me.Button1.Text = "&Rules"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnRegle.Location = New System.Drawing.Point(698, 536)
+        Me.btnRegle.Name = "btnRegle"
+        Me.btnRegle.Size = New System.Drawing.Size(88, 24)
+        Me.btnRegle.TabIndex = 22
+        Me.btnRegle.Text = "&Rules"
+        Me.btnRegle.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -330,7 +330,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(933, 588)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnRegle)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnRecords)
         Me.Controls.Add(Me.btnReset)
@@ -395,5 +395,5 @@ Partial Class Form1
     Friend WithEvents mnuPlayer2Name As ToolStripMenuItem
     Friend WithEvents btnRecords As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnRegle As Button
 End Class

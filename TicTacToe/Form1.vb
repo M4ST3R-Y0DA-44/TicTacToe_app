@@ -45,6 +45,40 @@ Public Class Form1
         Return strContentOfGrid
     End Function
 
+    ' Procedure that verifies if both players are humans and 1 players has more than 7 wins and if so, writes the game in the record books. 
+    Private Sub Record_Books()
+        ' Variable for players name and wins
+        Dim strPlayer1Name As String
+        Dim strPlayer2Name As String
+        Dim intPlayer1Wins As Integer
+        Dim intPlayer2Wins As Integer
+
+        strPlayer1Name = lblPlayer1Name.Text.Trim().TrimEnd(":"c)
+        strPlayer2Name = lblPlayer2Name.Text.Trim().TrimEnd(":"c)
+        Integer.TryParse(lblPlayer1GamesWon.Text, intPlayer1Wins)
+        Integer.TryParse(lblPlayer2Gameswon.Text, intPlayer2Wins)
+
+        ' Verifie if both players are humans and if 1 of the players has more then 7 wins. 
+        If strPlayer1Name <> "Player 1" And strPlayer2Name <> "Player 2" And (intPlayer1Wins >= 7 OrElse intPlayer2Wins >= 7) Then
+            Try
+                Dim RecordBooks As IO.StreamWriter
+
+                If IO.File.Exists("RecordBooks.txt") Then
+                    RecordBooks = IO.File.AppendText("RecordBooks.txt")
+                    RecordBooks.WriteLine(lblPlayer1Name.Text.PadRight(14) & lblPlayer1GamesWon.Text.PadRight(8) & lblPlayer2Name.Text.PadRight(14) & lblPlayer2Gameswon.Text)
+                    RecordBooks.Close()
+                Else
+                    RecordBooks = IO.File.CreateText("RecordBooks.txt")
+                    RecordBooks.WriteLine("Player1".PadRight(14) & "Wins".PadRight(8) & "Player2".PadRight(14) & "Wins")
+                    RecordBooks.WriteLine(lblPlayer1Name.Text.PadRight(14) & lblPlayer1GamesWon.Text.PadRight(8) & lblPlayer2Name.Text.PadRight(14) & lblPlayer2Gameswon.Text)
+                    RecordBooks.Close()
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
+    End Sub
+
     ' Resets a single game of tic tac toe or initializes the game if the games wasnt started. 
     Private Sub NewGame_Click(sender As Object, e As EventArgs) Handles btnNewGame.Click, NewGameToolStripMenuItem.Click
         If Grid_Content() <> String.Empty Then
@@ -272,6 +306,8 @@ Public Class Form1
             dlgButton = MessageBox.Show("Are you sure you want to quit this game?" + ControlChars.NewLine + "The total number of wins will also be lost.", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
             If dlgButton = DialogResult.No Then
                 e.Cancel = True
+            Else
+                Record_Books()
             End If
         End If
     End Sub
@@ -303,6 +339,7 @@ Public Class Form1
         Dim dlgResponse As DialogResult
         dlgResponse = MessageBox.Show("Are you sure you want to reset both players win total? Only games with at least 7 recorded wins will enter the records book!", "Reset Win Count", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
         If dlgResponse = DialogResult.Yes Then
+            Record_Books()
             lblPlayer1GamesWon.Text = "0"
             lblPlayer2Gameswon.Text = "0"
             ' Disable reset button and menu. 
@@ -311,11 +348,26 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub BtnRegle_Click(sender As Object, e As EventArgs) Handles btnRegle.Click
         Dim strRules As String
         strRules = "Rules of TicTacToe" + ControlChars.NewLine + "Turn by turn, each player places an 'X' or an 'O' on the playing grid." + ControlChars.NewLine +
             "The goal is to form a straight line of three 'X's or 'O's in a row." + ControlChars.NewLine + "This can be accomplished horizontaly, vertically, or diagonaly on the playing grid." +
             ControlChars.NewLine + "First player to complete the goal wins the game. The looser will start next round." + ControlChars.NewLine + ControlChars.NewLine + "Note: You can edit your players name through the edit menu for the game to go in the record books!"
         MessageBox.Show(strRules, "Rules", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub btnRecords_Click(sender As Object, e As EventArgs) Handles btnRecords.Click
+        Try
+            Dim RecordBooks As IO.StreamReader
+
+            If IO.File.Exists("RecordBooks.txt") Then
+                Dim strRecordBooksContent As String
+                RecordBooks = IO.File.OpenText("RecordBooks.txt")
+                strRecordBooksContent = RecordBooks.ReadToEnd()
+                MessageBox.Show(strRecordBooksContent, "RecordBooks", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 End Class

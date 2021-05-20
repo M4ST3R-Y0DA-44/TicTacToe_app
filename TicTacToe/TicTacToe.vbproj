@@ -120,10 +120,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Tails_side_coin.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Head_side_coin.jpg" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
